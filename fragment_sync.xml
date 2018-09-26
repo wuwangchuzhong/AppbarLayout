@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/cdl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--android:fitsSystemWindows="true"-->
+            <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:expandedTitleMarginStart="45dp"
+                app:layout_scrollFlags="scroll">
+
+                <com.yidian.buyer.view.YiDianBanneryidian
+                    android:id="@+id/sync_title_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_marginTop="66dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/syncauction"
+                    android:background="@color/viewbackgroud"/>
+
+                <android.support.v7.widget.Toolbar
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    android:gravity="center"
+                    app:contentInsetEnd="0dp"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetRight="0dp"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin">
+                    <!--?attr/actionBarSize-->
+                    <!--layout_collapseParallaxMultiplier="1"-->
+                    <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+                    <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+                    <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="0dp"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:background="@android:color/white"
+                            android:descendantFocusability="beforeDescendants"
+                            android:focusableInTouchMode="true" />
+
+                        <include layout="@layout/fragment_sync_titles" />
+                    </LinearLayout>
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <!--此时放recyclerview-->
+        <RelativeLayout
+            android:id="@+id/re_syncfragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_scrollFlags="scroll">
+
+            <com.yidian.buyer.view.IRecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:overScrollMode="never" />
+
+            <include layout="@layout/hoverbutton"></include>
+
+        </RelativeLayout>
+
+        <com.yidian.buyer.view.Layout_networkcollapse
+            android:id="@+id/ly_newwork"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="120dp"
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <ImageView
+        android:id="@+id/iv_sync"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+</RelativeLayout>
